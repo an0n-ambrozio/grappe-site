@@ -17,10 +17,13 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// SEO básico
+// SEO básico + Favicon
 export const metadata: Metadata = {
   title: "Grappe.AI",
   description: "Tecnologia de IA para empresas que lideram o amanhã.",
+  icons: {
+    icon: "/logograppe.svg", // Arquivo deve estar em /public
+  },
 };
 
 // Layout raiz da aplicação
