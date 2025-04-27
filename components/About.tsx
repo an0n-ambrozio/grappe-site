@@ -4,18 +4,18 @@ import { motion } from "framer-motion";
 
 export default function Sobre() {
   return (
-    <section id="sobre" className="w-full bg-white py-24">
-      <div className="max-w-5xl mx-auto px-6 md:px-8 flex flex-col md:flex-row gap-12">
+    <section id="sobre" className="w-full bg-white py-20 md:py-24 px-4 md:px-8 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto w-full bg-white/70 backdrop-blur-lg border border-zinc-200 rounded-2xl shadow-lg p-6 md:p-12 flex flex-col md:flex-row gap-10 md:gap-16">
 
-        {/* COLUNA ESQUERDA - Título com linha vertical e ponto pulsante */}
+        {/* COLUNA ESQUERDA - Linha e Título */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="md:w-1/3 relative pl-6 border-l-2 border-purple-900"
+          className="md:w-1/3 relative pl-6 border-l-2 border-purple-900 flex flex-col"
         >
-          {/* Ícone pulsante no topo da linha */}
+          {/* Ícone pulsante */}
           <div className="absolute -left-[9px] top-0">
             <span className="relative flex h-3 w-3">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75" />
@@ -23,11 +23,11 @@ export default function Sobre() {
             </span>
           </div>
 
-          <p className="text-sm text-purple-900 font-medium uppercase mb-3">
+          <p className="text-xs md:text-sm text-purple-900 font-medium uppercase mb-3">
             Sobre a GRAPPE.AI
           </p>
 
-          <h2 className="text-3xl md:text-4xl font-extrabold text-zinc-900 leading-tight">
+          <h2 className="text-2xl md:text-4xl font-extrabold text-zinc-900 leading-tight">
             Tecnologia <br />para escalar empresas.
           </h2>
         </motion.div>
@@ -38,10 +38,10 @@ export default function Sobre() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="md:w-2/3 space-y-5 text-zinc-600 text-base leading-relaxed"
+          className="md:w-2/3 space-y-5 text-zinc-600 text-sm md:text-base leading-relaxed"
         >
           <p>
-            A Grappe AI é uma empresa de tecnologia especializada no desenvolvimento
+            A Grappe.AI é uma empresa de tecnologia especializada no desenvolvimento
             de agentes autônomos de Inteligência Artificial, capazes de operar tarefas
             complexas de forma natural, eficiente e em tempo real.
           </p>

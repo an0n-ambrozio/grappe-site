@@ -109,10 +109,10 @@ export default function ContatoPage() {
             <p>
               Ou envie um e-mail para:{" "}
               <a
-                href="mailto:matheus@grappeai.com"
+                href="mailto:contato@grappeai.com"
                 className="text-purple-900 font-medium underline underline-offset-4"
               >
-                matheus@grappeai.com
+                contato@grappeai.com
               </a>
             </p>
             <p className="mt-1">

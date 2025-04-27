@@ -5,6 +5,7 @@
   --foreground: #171717;
 }
 
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -135,4 +136,25 @@ h3 {
 
 .nav-hover-box:hover::before {
   border-color: rgba(168, 85, 247, 0.4); /* roxo sutil */
+}
+
+@keyframes backgroundMove {
+  0% { transform: translate(0, 0); }
+  50% { transform: translate(10px, 10px); }
+  100% { transform: translate(0, 0); }
+}
+
+.animate-backgroundMove {
+  animation: backgroundMove 20s ease-in-out infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(8deg); }
+  50% { transform: rotate(-8deg); }
+  75% { transform: rotate(8deg); }
+}
+
+.animate-shake {
+  animation: shake 0.5s infinite;
 }

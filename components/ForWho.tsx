@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, Home, Hospital, Rocket } from "lucide-react";
-import ParticlesBackground from "@/components/ParticlesBackground";
 
 const segmentos = [
   {
@@ -29,13 +28,9 @@ const segmentos = [
 
 export default function ParaQuemCriamos() {
   return (
-    <section
-      id="segmentos"
-      className="relative w-full py-24 bg-white text-zinc-900"
-    >
-      <ParticlesBackground />
+    <section id="segmentos" className="relative w-full py-20 md:py-24 bg-white text-zinc-900 overflow-hidden">
 
-      {/* Título */}
+      {/* TÍTULO */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -43,31 +38,31 @@ export default function ParaQuemCriamos() {
         viewport={{ once: true }}
         className="max-w-5xl mx-auto px-4 md:px-6 mb-16 text-left"
       >
-        <p className="text-sm text-purple-900 font-medium uppercase mb-3">
+        <p className="text-xs md:text-sm text-purple-900 font-medium uppercase mb-3">
           Para Quem Criamos
         </p>
-        <h2 className="text-3xl md:text-4xl font-extrabold leading-snug">
+        <h2 className="text-3xl md:text-4xl font-extrabold leading-tight md:leading-snug text-zinc-900">
           Soluções corporativas para empresas que exigem excelência.
         </h2>
       </motion.div>
 
-      {/* Cards com scroll no mobile e grid no desktop */}
-      <div className="max-w-5xl mx-auto px-4 md:px-6 overflow-x-auto md:overflow-visible">
-        <div className="flex md:grid md:grid-cols-4 gap-4 md:gap-6 w-max md:w-full pr-4 md:pr-0">
+      {/* GRID DE CARDS */}
+      <div className="max-w-5xl mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
           {segmentos.map((seg, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="min-w-[200px] max-w-[220px] sm:min-w-0 bg-gradient-to-br from-purple-900 via-purple-700 to-purple-900 backdrop-blur-md border border-white/20 shadow-md md:shadow-xl p-4 sm:p-6 rounded-xl flex flex-col justify-between transition-transform hover:scale-[1.04] hover:shadow-2xl"
+              className="bg-gradient-to-br from-purple-900 via-purple-700 to-purple-900 backdrop-blur-md border border-white/20 shadow-md rounded-xl p-4 sm:p-6 flex flex-col justify-between transition-all hover:scale-[1.05] hover:shadow-purple-300/40"
             >
               <div className="mb-3">{seg.icon}</div>
-              <h3 className="text-base sm:text-lg font-semibold text-white mb-1 sm:mb-2">
+              <h3 className="text-[10px] sm:text-base font-semibold text-white mb-2 leading-snug">
                 {seg.title}
               </h3>
-              <p className="text-xs sm:text-sm text-purple-100 leading-snug sm:leading-relaxed">
+              <p className="text-[9px] sm:text-sm text-purple-100 leading-snug sm:leading-relaxed">
                 {seg.description}
               </p>
             </motion.div>

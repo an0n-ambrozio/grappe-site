@@ -26,11 +26,16 @@ export default function Header() {
         </Link>
 
         {/* MENU DESKTOP */}
-        <nav className="hidden md:flex items-center gap-4 text-sm text-zinc-700 font-medium">
-          <Link href="/sobre" className="hover:text-purple-900 transition">Sobre</Link>
-          <Link href="/tecnologia" className="hover:text-purple-900 transition">Tecnologia</Link>
-          <Link href="/solucoes" className="hover:text-purple-900 transition">Soluções</Link>
-          <Link href="/contato" className="hover:text-purple-900 transition">Contato</Link>
+        <nav className="hidden md:flex items-center gap-2 text-sm text-zinc-700 font-medium">
+          {["sobre", "tecnologia", "solucoes", "contato"].map((item) => (
+            <Link
+              key={item}
+              href={`/${item}`}
+              className="px-3 py-2 rounded-md transition hover:bg-purple-100 hover:text-purple-900"
+            >
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+            </Link>
+          ))}
         </nav>
 
         {/* BOTÃO LOGIN DESKTOP */}
@@ -47,7 +52,11 @@ export default function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
           className="md:hidden text-zinc-700 hover:text-purple-900 transition"
         >
-          {menuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          {menuOpen ? (
+            <X className="w-6 h-6" strokeWidth={2.5} />
+          ) : (
+            <Menu className="w-6 h-6" strokeWidth={2.5} />
+          )}
         </button>
       </div>
 
@@ -60,12 +69,23 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden px-4 pb-6"
           >
-            <nav className="flex flex-col gap-4 text-sm text-zinc-700 font-medium">
-              <Link href="/sobre" onClick={() => setMenuOpen(false)} className="hover:text-purple-900 transition">Sobre</Link>
-              <Link href="/tecnologia" onClick={() => setMenuOpen(false)} className="hover:text-purple-900 transition">Tecnologia</Link>
-              <Link href="/solucoes" onClick={() => setMenuOpen(false)} className="hover:text-purple-900 transition">Soluções</Link>
-              <Link href="/contato" onClick={() => setMenuOpen(false)} className="hover:text-purple-900 transition">Contato</Link>
-              <Link href="/login" onClick={() => setMenuOpen(false)} className="text-sm px-4 py-2 border border-purple-900 text-purple-900 rounded-md font-semibold hover:bg-purple-900 hover:text-white transition mt-2 text-center">
+            <nav className="flex flex-col gap-2 text-sm text-zinc-700 font-medium">
+              {["sobre", "tecnologia", "solucoes", "contato"].map((item) => (
+                <Link
+                  key={item}
+                  href={`/${item}`}
+                  onClick={() => setMenuOpen(false)}
+                  className="px-3 py-2 rounded-md hover:bg-purple-100 hover:text-purple-900 transition"
+                >
+                  {item.charAt(0).toUpperCase() + item.slice(1)}
+                </Link>
+              ))}
+
+              <Link
+                href="/login"
+                onClick={() => setMenuOpen(false)}
+                className="text-sm px-4 py-2 border border-purple-900 text-purple-900 rounded-md font-semibold hover:bg-purple-900 hover:text-white transition mt-2 text-center"
+              >
                 Log in
               </Link>
             </nav>

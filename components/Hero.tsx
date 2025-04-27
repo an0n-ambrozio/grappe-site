@@ -1,81 +1,135 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PhoneCall } from "lucide-react";
-import Image from "next/image";
+import { PhoneCall, Mail } from "lucide-react";
+import Lottie from "lottie-react";
+import soundwaveAnimation from "@/public/lotties/soundwave.json";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[120vh] flex flex-col justify-start px-4 md:px-6 pt-28 pb-[300px] overflow-hidden bg-white">
-
-      {/* GRADE SVG AO FUNDO */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-          <defs>
-            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#e5e7eb" strokeWidth="0.3" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
-
-      {/* IMAGEM COM ROTAÇÃO E GRADIENTE */}
-      <div className="absolute bottom-20 md:bottom-20 left-1/2 transform -translate-x-1/2 z-0 pointer-events-none w-full flex justify-center px-4">
-        <motion.div
-          animate={{ y: [0, -10, 0] }}
-          transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-          className="w-full max-w-[1400px] overflow-visible relative"
-        >
-          <Image
-            src="/background.png"
-            alt="Dashboard Grappe"
-            width={2000}
-            height={1400}
-            priority
-            className="w-full h-auto object-contain -rotate-6 scale-[1.05] md:scale-[1.05] sm:scale-[0.95]"
-          />
-          <div
-            className="absolute bottom-0 left-0 w-full h-40"
-            style={{
-              transform: 'rotate(-6deg) translateY(20px)',
-              transformOrigin: 'bottom center',
-              background:
-                'linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)'
-            }}
-          />
-        </motion.div>
-      </div>
-
-      {/* CONTEÚDO COM ALINHAMENTO À ESQUERDA EM TODOS OS DISPOSITIVOS */}
+    <section className="relative min-h-[65vh] md:min-h-[80vh] flex flex-col justify-center px-4 md:px-6 pt-16 md:pt-28 overflow-hidden bg-white">
+      
+      {/* Conteúdo */}
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-5xl mx-auto px-4 md:px-6 text-left"
+        initial={{ opacity: 0, scale: 0.98 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1 }}
+        className="relative z-10 max-w-5xl mx-auto w-full flex flex-col justify-center sm:justify-start"
       >
-        <p className="text-xs md:text-sm text-purple-200 font-semibold tracking-widest uppercase mb-3">
-          Tecnologia Exclusiva Grappe.AI
-        </p>
-
-        <h1 className="text-3xl md:text-5xl font-extrabold leading-snug mb-4 text-purple-900">
-          Inteligência Artificial que<br className="hidden md:block" />
-          Atende, Fala e Converte.
-        </h1>
-
-        <p className="text-sm md:text-base text-gray-600 mb-6 max-w-xl">
-          Inteligência Artificial sob medida para escalar resultados — 24h por dia,
-          com voz natural e resultados reais.
-        </p>
-
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          className="flex items-center gap-2 px-6 py-2 text-sm text-purple-900 font-semibold rounded-md border border-purple-900 bg-white transition duration-300 ease-in-out hover:bg-purple-900 hover:text-white"
+        {/* Subtítulo */}
+        <motion.p
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="text-[10px] md:text-sm text-zinc-300 font-semibold tracking-widest uppercase mb-4 md:mb-6 text-left"
         >
-          <PhoneCall className="w-4 h-4" />
-          TESTE AGORA!
-        </motion.button>
+          Tecnologia Exclusiva Grappe.AI
+        </motion.p>
+
+        {/* Desktop */}
+        <div className="hidden sm:block text-left">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-5xl md:text-6xl font-extrabold leading-tight max-w-[800px] mb-8 text-purple-900"
+          >
+            Tecnologia de Voz{" "}
+            <span className="text-zinc-700">
+              que está revolucionando o atendimento e impulsionando negócios.
+            </span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="text-base text-zinc-600 mb-8 max-w-2xl"
+          >
+            Teste agora e veja o futuro do atendimento.
+          </motion.p>
+
+          {/* Botões Desktop */}
+          <div className="flex flex-col sm:flex-row items-start gap-4">
+            <motion.a
+              whileHover={{ scale: 1.08, y: -3 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              href="/testar"
+              className="group inline-flex items-center justify-center gap-2 px-6 py-3 text-md font-bold text-white bg-purple-900 rounded-md shadow-lg hover:bg-purple-800 transition-all duration-300"
+            >
+              <PhoneCall className="w-5 h-5" />
+              Testar agora
+            </motion.a>
+
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1, duration: 0.8 }}
+              href="/contato"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 text-md font-semibold text-purple-900 bg-transparent rounded-md hover:bg-purple-100 transition-all duration-300"
+            >
+              <Mail className="w-5 h-5" />
+              Entrar em contato
+            </motion.a>
+          </div>
+        </div>
+
+        {/* Mobile */}
+        <div className="block sm:hidden text-left mt-6">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="text-[20px] font-bold leading-snug text-purple-900 mb-3 max-w-[320px]"
+          >
+            Tecnologia de Voz{" "}
+            <span className="text-zinc-700">
+              que revoluciona o atendimento e impulsiona negócios.
+            </span>
+          </motion.h3>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="text-[12px] text-zinc-600 mb-6 max-w-[280px]"
+          >
+            Teste agora e veja o futuro do atendimento.
+          </motion.p>
+
+          {/* Botão Mobile */}
+          <div className="flex flex-col items-start gap-4">
+            <motion.a
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.97 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+              href="/testar"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2 text-[13px] font-bold text-white bg-purple-900 rounded-md shadow-md hover:bg-purple-800 transition-all duration-300"
+            >
+              <PhoneCall className="w-4 h-4" />
+              Testar agora
+            </motion.a>
+          </div>
+        </div>
       </motion.div>
+
+      {/* Lottie Animation */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[120px] md:h-[200px] opacity-70 pointer-events-none">
+        <Lottie
+          animationData={soundwaveAnimation}
+          loop={true}
+          style={{
+            objectFit: "cover",
+          }}
+        />
+      </div>
     </section>
   );
 }
