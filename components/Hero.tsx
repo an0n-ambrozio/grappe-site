@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { PhoneCall, Mail } from "lucide-react";
-import Lottie from "lottie-react";
+import dynamic from "next/dynamic";
 import soundwaveAnimation from "@/public/lotties/soundwave.json";
+
+// Importar Lottie dinamicamente para evitar o erro no build do Vercel
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 export default function Hero() {
   return (
