@@ -81,13 +81,12 @@ export default function Header() {
                 </Link>
               ))}
 
-              <Link
-                href="/login"
-                onClick={() => setMenuOpen(false)}
+              <a
+                href="https://portal.grappeai.com"
                 className="text-sm px-4 py-2 border border-purple-900 text-purple-900 rounded-md font-semibold hover:bg-purple-900 hover:text-white transition mt-2 text-center"
               >
                 Log in
-              </Link>
+              </a>
             </nav>
           </motion.div>
         )}
