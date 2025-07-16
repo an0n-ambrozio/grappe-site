@@ -41,7 +41,7 @@ export default function Header() {
         {/* BOTÃO LOGIN DESKTOP */}
         <motion.a
           whileHover={{ scale: 1.03 }}
-          href="/login"
+          href="https://porta.grappeai.com"
           className="hidden md:block text-sm px-4 py-2 text-purple-900 border border-purple-900 rounded-md font-semibold transition hover:bg-purple-900 hover:text-white"
         >
           Log in
