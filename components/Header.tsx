@@ -41,7 +41,7 @@ export default function Header() {
         {/* BOTÃO LOGIN DESKTOP */}
         <motion.a
           whileHover={{ scale: 1.03 }}
-          href="https://portal.grappeai.com"
+          href="https://app.grappe.ai"
           className="hidden md:block text-sm px-4 py-2 text-purple-900 border border-purple-900 rounded-md font-semibold transition hover:bg-purple-900 hover:text-white"
         >
           Log in
@@ -82,7 +82,7 @@ export default function Header() {
               ))}
 
               <a
-                href="https://portal.grappeai.com"
+                href="https://app.grappe.ai"
                 className="text-sm px-4 py-2 border border-purple-900 text-purple-900 rounded-md font-semibold hover:bg-purple-900 hover:text-white transition mt-2 text-center"
               >
                 Log in
